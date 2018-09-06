@@ -8,6 +8,10 @@
  * 
  */
 
+// interfaces
+export interface TextUtilStyle { color?: string, background?: string, attribute?: string }
+
+// classes
 export class TextUtil {
 
     // escape codes for console forground colors
@@ -54,7 +58,7 @@ export class TextUtil {
     }
     
     // applies the specified text style
-    static setTextStyle(str: string, style, start: number, end: number): string {
+    static setTextStyle(str: string, style: TextUtilStyle, start?: number, end?: number): string {
         if (style) {
             let buf: Array<string> = [];
             if (style.color != null) {

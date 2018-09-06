@@ -2,7 +2,7 @@
 
 var TextQuoter = require('./text-quoter');
 var { TextUtil } = require('./text-util');
-var TextGraph = require('./graph');
+var { TextGraph } = require('./graph');
 
 var defaultOptions = {
     hiddenPaths: [],
