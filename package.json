@@ -7,7 +7,7 @@
     "url": "https://github.com/icooper/pegjs-tracer"
   },
   "homepage": "https://github.com/icooper/pegjs-tracer",
-  "main": "src/main.js",
+  "main": "src/index.js",
   "scripts": {},
   "keywords": ["pegjs","tracer","PEG.js"],
   "author": "Ian Cooper",
