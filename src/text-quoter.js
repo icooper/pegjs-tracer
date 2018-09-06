@@ -34,7 +34,7 @@ TextQuoter.prototype.setTextStyle = function (str, style, start, end) {
 };
 
 TextQuoter.prototype.drawHLine = function (start, length, ch) {
-    return this.setTextStyle(TextUtil.makeLine(start, length, ch), this.options.highlightStyle); q
+    return this.setTextStyle(TextUtil.makeLine(start, length, ch), this.options.highlightStyle);
 };
 
 TextQuoter.prototype.getQuotedLines = function (quoteString, startLine, startColumn, endLine, endColumn, maxLines) {
