@@ -1,5 +1,4 @@
-# pegjs-backtrace [![npm version](https://badge.fury.io/js/pegjs-backtrace.svg)](https://badge.fury.io/js/pegjs-backtrace)
-<img src="https://nodei.co/npm/pegjs-backtrace.png?downloads=true&stars=true" alt=""/>
+# pegjs-tracer
 
 A tracer module for [PEG.js](http://pegjs.org/) which generates a visual backtrace tree.
 
@@ -127,3 +126,7 @@ If you would like to see the event on `"+"` failure, the `"+"` should be an expl
 plus = "+"
 additive = multiplicative plus additive / multiplicative
 ```
+
+# Credits
+
+This started as a [fork](https://github.com/icooper/pegjs-backtrace) of [pegjs-backtrace](https://github.com/okaxaki/pegjs-backtrace) but will evolve separately from the original. Thanks to [Mitsutaka Okazaki](https://github.com/okaxaki) for a nice foundation on which to build.
