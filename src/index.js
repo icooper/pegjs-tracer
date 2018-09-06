@@ -1,6 +1,6 @@
 'use strict';
 
-var TextQuoter = require('./text-quoter');
+var { TextQuoter } = require('./text-quoter');
 var { TextUtil } = require('./text-util');
 var { TextGraph } = require('./graph');
 
