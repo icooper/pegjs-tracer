@@ -1,16 +1,16 @@
 {
-  "name": "pegjs-backtrace",
-  "version": "0.1.1",
-  "description": "A debug backtrace module for PEG.js.",
+  "name": "pegjs-tracer",
+  "version": "0.1.2",
+  "description": "A visual backtrace module for PEG.js.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/okaxaki/pegjs-backtrace"
+    "url": "https://github.com/icooper/pegjs-tracer"
   },
-  "homepage": "https://github.com/okaxaki/pegjs-backtrace",
+  "homepage": "https://github.com/icooper/pegjs-tracer",
   "main": "src/main.js",
   "scripts": {},
   "keywords": ["pegjs","tracer","PEG.js"],
-  "author": "Mitsutaka Okazaki",
+  "author": "Ian Cooper",
   "license": "ISC",
   "dependencies": {
   }
