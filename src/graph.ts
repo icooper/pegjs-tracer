@@ -10,6 +10,7 @@
 
 // import the TextUtil class for text styling
 import { TextUtil, TextUtilStyle } from './text-util';
+import { TracerNode } from './index';
 
 // interfaces
 export interface TextGraphOptions {
@@ -24,7 +25,7 @@ export class TextGraph {
         useColor: true
     };
 
-    // options
+    // properties
     options: TextGraphOptions = { };
 
     // helper function to apply default settings
@@ -53,7 +54,7 @@ export class TextGraph {
     }
 
     // set draw state
-    drawState(nodes: any[], column: number, contents: string[] = [], isLastState: boolean): string[] {
+    drawState(nodes: TracerNode[], column: number = null, contents: string[] = [], isLastState: boolean = false): string[] {
         let buf: string[] = [];
         if (contents.length > 0) {
             buf.push(this.drawStateLine(nodes, column, isLastState) + contents.shift());
@@ -67,7 +68,7 @@ export class TextGraph {
     }
 
     // draw state line
-    drawStateLine(nodes: any[], column: number, isLastState: boolean): string {
+    drawStateLine(nodes: TracerNode[], column: number = null, isLastState: boolean = false): string {
         let line = '';
         let quote = isLastState ? '  ' : '| ';
 
@@ -92,7 +93,7 @@ export class TextGraph {
     }
 
     // draw merge edge
-    drawMergeEdge(fromIndex: number, toIndex: number, nodes: any[]): string[] {
+    drawMergeEdge(fromIndex: number, toIndex: number, nodes: TracerNode[]): string[] {
         let lines = ['', ''];
 
         for (let i = 0; i < nodes.length; i++) {
@@ -127,7 +128,7 @@ export class TextGraph {
     }
 
     // draw merge edges
-    drawMergeEdges(fromIndexes: number[], toIndex: number, nodes: any[]): string[] {
+    drawMergeEdges(fromIndexes: number[], toIndex: number, nodes: TracerNode[]): string[] {
         let lines = [];
 
         nodes = nodes.slice(0);
