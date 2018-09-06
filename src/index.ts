@@ -355,7 +355,7 @@ export class Tracer {
         var children: TracerNode[] = [];
         var self = this;
 
-        var ret = {
+        var ret: TracerNode = {
             parent: null,
             type: node.type,
             path: node.path,
@@ -429,7 +429,7 @@ export class Tracer {
 
         return lines;
 
-    };
+    }
 
     private static treeToList(tree?: TracerNode): TracerNode[] {
         let buf: TracerNode[] = [];
@@ -468,5 +468,5 @@ export class Tracer {
         list.shift();
         lines = this.buildNodeGraph(list);
         return lines.join('\n');
-    };
+    }
 }
