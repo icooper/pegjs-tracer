@@ -25,8 +25,6 @@ mult = "*"
 
 If you give the `2*(3/4)` which the grammar does not recognize, pegjs-backtrace shows backtrace tree from the maximum failure positions to the start rule as follows.
 
-<img src="img/backtrace.png" width="400">
-
 # Install
 
 ```
@@ -90,12 +88,8 @@ The maximum number of lines shown as the quoted source on each trace node. The d
 ## <a name="showTrace"></a>showTrace 
 If true, trace log is printed while parsing. The default value is `false`.
 
-<img src="img/trace.png" width="400">
-
 ## showFullPath
 If the options is true, the rule path is shown instead of the rule name. The default value is `false`.
-
-<img src="img/path.png" width="90%">
 
 ## maxPathLength
 The limit length of the displaying path name. When the path length exeeds to the limit, the path is truncated.
