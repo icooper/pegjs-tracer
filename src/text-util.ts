@@ -8,7 +8,7 @@
  * 
  */
 
-class TextUtil {
+export class TextUtil {
 
     // escape codes for console forground colors
     private static COLOR_MAP = {
@@ -44,20 +44,19 @@ class TextUtil {
         invisible: '8'
     };
 
-    // some space
-    private static SPACE = '                                                                       ';
-
-    static truncate(str: string, maxlen: number) {
+    // truncates the a string from the beginning
+    static truncate(str: string, maxlen: number): string {
         if (0 < maxlen && maxlen < str.length) {
-            var trlen = str.length - maxlen + 3;
+            let trlen: number = str.length - maxlen + 3;
             return '...' + str.slice(trlen);
         }
         return str;
     }
     
-    static setTextStyle(str: string, style, start: number, end: number) {
+    // applies the specified text style
+    static setTextStyle(str: string, style, start: number, end: number): string {
         if (style) {
-            var buf = [];
+            let buf: Array<string> = [];
             if (style.color != null) {
                 buf.push(TextUtil.COLOR_MAP[style.color] || '37');
             }
@@ -79,24 +78,22 @@ class TextUtil {
         return str;
     }
     
-    static makeIndent(indent) {
-        var ret = '';
-        while (TextUtil.SPACE.length < indent) {
-            ret += TextUtil.SPACE;
-            indent -= TextUtil.SPACE.length;
-        }
-        return ret + TextUtil.SPACE.slice(0, indent);
+    // make some blank space (or uses the specified character)
+    static makeIndent(indent: number, ch:string = ' '): string {
+        return Array(indent + 1).join(ch);
     }
     
-    static concatTextBlock(a, b) {
-        var result = [], i;
-        for (i = 0; i < Math.max(a.length, b.length); i++) {
+    // concatenate two text blocks
+    static concatTextBlock(a: string, b: string): Array<string> {
+        let result: Array<string> = [];
+        for (let i = 0; i < Math.max(a.length, b.length); i++) {
             result.push((a[i] || '') + (b[i] || ''));
         }
         return result;
     }
     
-    static makeLine(indent, length, ch) {
-        return TextUtil.makeIndent(indent) + TextUtil.makeIndent(length).replace(/ /g, ch);
+    // make a line of spaces
+    static makeLine(indent: number, length: number, ch: string): string {
+        return TextUtil.makeIndent(indent) + TextUtil.makeIndent(length, ch);
     }
 }

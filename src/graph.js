@@ -9,7 +9,7 @@
  */
 
 // import the TextUtil class for text styling
-let TextUtil = require('./text-util');
+let { TextUtil } = require('./text-util');
 
 // constructor
 class TextGraph {
