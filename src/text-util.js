@@ -101,5 +101,5 @@ TextUtil.ATTR_MAP = {
 // some space
 TextUtil.__SPACE__ = '                                                                       ';
 
-// export TextUtil
+// export the TextUtil class
 module.exports = TextUtil;
