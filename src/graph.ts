@@ -12,13 +12,15 @@
 import { TextUtil, TextUtilStyle } from './text-util';
 
 // interfaces
-export interface TextGraphOptions { useColor?: boolean; };
+export interface TextGraphOptions {
+    useColor?: boolean;
+};
 
 // classes
 export class TextGraph {
 
     // default options
-    private static defaultOptions = {
+    private static defaultOptions: TextGraphOptions = {
         useColor: true
     };
 

@@ -1,5 +1,5 @@
 /*
- * text-quoter.js
+ * text-quoter.ts
  * 
  * Utility class for quoting from source files. Originally written by Mitsutaka Okazaki.
  * 
@@ -9,26 +9,43 @@
  */
 
 // import the TextUtil class for text styling
-let { TextUtil } = require('./text-util');
+import { TextUtil, TextUtilStyle } from './text-util';
 
-class TextQuoter {
+// interfaces
+export interface TextQuoterOptions {
+    useColor?: boolean;
+    highlightStyle?: TextUtilStyle;
+}
+
+// classes
+export class TextQuoter {
+
+    // default options
+    private static defaultOptions: TextQuoterOptions = {
+        useColor: true,
+        highlightStyle: { color: 'cyan' }
+    }
+
+    // properties
+    options: TextQuoterOptions = { };
+    private sourceLines: string[];
 
     // helper function to apply default settings
-    static _applyDefault(opt, def) {
+    private static applyDefault(opt: object, def: TextQuoterOptions): TextQuoterOptions {
         let ret = {};
         for (let key in def) {
             ret[key] = (opt && opt[key] !== undefined)
                 ? opt[key]
                 : def[key];
         }
-        return ret;   
+        return ret;
     }
 
     // constructor
-    constructor(source, opt) {
+    constructor(source: string, opt: TextQuoterOptions) {
 
         // apply default options
-        this.options = TextQuoter._applyDefault(opt, TextQuoter._defaultOptions);
+        this.options = TextQuoter.applyDefault(opt, TextQuoter.defaultOptions);
 
         // make sure that we were given some source
         if (source == null) {
@@ -51,7 +68,7 @@ class TextQuoter {
     }
 
     // set text style
-    setTextStyle(str, style, start, end) {
+    setTextStyle(str: string, style: TextUtilStyle, start?: number, end?: number): string {
         if (this.options.useColor) {
             return TextUtil.setTextStyle(str, style, start, end);
         } else {
@@ -60,23 +77,25 @@ class TextQuoter {
     }
 
     // draw horizontal line
-    drawHLine(start, length, ch) {
+    drawHLine(start: number, length: number, ch: string): string {
         return this.setTextStyle(TextUtil.makeLine(start, length, ch), this.options.highlightStyle);
     }
 
     // get quoted lines
-    getQuotedLines(quoteString, startLine, startColumn, endLine, endColumn, maxLines) {
+    getQuotedLines(quoteString: string,
+                   startLine: number, startColumn:number,
+                   endLine: number, endColumn:number,
+                   maxLines: number): string[] {
 
         maxLines = (!maxLines || maxLines < 3) ? 3 : maxLines;
     
-        var numLines = (endLine - startLine) + 1;
-        var numSkipLines = numLines - maxLines;
-        var numHeadLines = Math.ceil((numLines - numSkipLines) / 2);
-        var numTailLines = Math.floor((numLines - numSkipLines) / 2);
+        let numLines = (endLine - startLine) + 1;
+        let numSkipLines = numLines - maxLines;
+        let numHeadLines = Math.ceil((numLines - numSkipLines) / 2);
+        let numTailLines = Math.floor((numLines - numSkipLines) / 2);
     
-        var i;
-        var lines = [];
-        for (i = startLine; i <= endLine; i++) {
+        let lines: string[] = [];
+        for (let i = startLine; i <= endLine; i++) {
             lines.push(this.sourceLines[i]);
         }
     
@@ -87,7 +106,7 @@ class TextQuoter {
             }
         } else {
             lines[0] = this.setTextStyle(lines[0], style, startColumn);
-            for (i = 1; i < lines.length - 1; i++) {
+            for (let i = 1; i < lines.length - 1; i++) {
                 lines[i] = this.setTextStyle(lines[i], style);
             }
             lines[lines.length - 1] = this.setTextStyle(lines[lines.length - 1], style, 0, endColumn + 1);
@@ -103,21 +122,15 @@ class TextQuoter {
             lines.unshift(this.drawHLine(startColumn, (lines[0].length - startColumn), '_'));
             lines.push(this.drawHLine(0, endColumn, '^'));
         }
-        lines = lines.map(function (e) { return quoteString + e; });
+        lines = lines.map(e => quoteString + e);
         return lines;
     }
 
     // get quoted text
-    getQuotedText(quoteString, startLine, startColumn, endLine, endColumn, maxLines) {
+    getQuotedText(quoteString: string,
+                  startLine: number, startColumn: number,
+                  endLine: number, endColumn: number,
+                  maxLines: number): string {
         return this.getQuotedLines(quoteString, startLine, startColumn, endLine, endColumn, maxLines).join('\n');
     }
 }
-
-// default options
-TextQuoter._defaultOptions = {
-    useColor: true,
-    highlightStyle: { color: 'cyan' },
-};
-
-// export the TextQuoter class
-module.exports = TextQuoter;

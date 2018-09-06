@@ -9,7 +9,11 @@
  */
 
 // interfaces
-export interface TextUtilStyle { color?: string, background?: string, attribute?: string }
+export interface TextUtilStyle {
+    color?: string;
+    background?: string;
+    attribute?: string;
+}
 
 // classes
 export class TextUtil {
