@@ -1,9 +1,9 @@
 let parser = require('./test');
-let Tracer = require('../src');
+let { Tracer } = require('../src');
 
-var source = '2+(3/4)';
+let source = '2+(3/4)';
 
-var tracer = new Tracer(source, {
+let tracer = new Tracer(source, {
     useColor: true,
     showTrace: true,
     showSource: true,
