@@ -1,7 +1,7 @@
 /*
  * text-util.js
  * 
- * Utility class for text formatting. Originally written by Mitsutaka Okazaki.
+ * Static utility class for text formatting. Originally written by Mitsutaka Okazaki.
  * 
  * Ian Cooper
  * 06 Sept 2018

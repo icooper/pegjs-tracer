@@ -112,6 +112,7 @@ class TextQuoter {
     }
 }
 
+// default options
 TextQuoter._defaultOptions = {
     useColor: true,
     highlightStyle: { color: 'cyan' },
