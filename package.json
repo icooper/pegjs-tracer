@@ -9,9 +9,15 @@
   "homepage": "https://github.com/icooper/pegjs-tracer",
   "main": "src/index.js",
   "scripts": {},
-  "keywords": ["pegjs","tracer","PEG.js"],
+  "keywords": [
+    "pegjs",
+    "tracer",
+    "PEG.js"
+  ],
   "author": "Ian Cooper",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^3.0.3"
   }
 }
