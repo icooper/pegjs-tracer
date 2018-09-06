@@ -8,7 +8,7 @@
  * 
  */
 
-// import the TextUtil library for text styling in the terminal
+// import the TextUtil class for text styling
 let TextUtil = require('./text-util');
 
 // constructor

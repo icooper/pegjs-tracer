@@ -8,6 +8,7 @@
  * 
  */
 
+// import the TextUtil class for text styling
 let TextUtil = require('./text-util');
 
 class TextQuoter {
