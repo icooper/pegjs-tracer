@@ -9,7 +9,7 @@
  */
 
 // import the TextUtil class for text styling
-import { TextUtil, TextUtilStyle } from './text-util';
+import { TextUtil, TextUtilStyle } from './TextUtil';
 
 // interfaces
 export interface TextQuoterOptions {

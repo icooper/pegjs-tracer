@@ -1,5 +1,5 @@
 let parser = require('./test');
-let { Tracer } = require('../build');
+let { Tracer } = require('../build/Tracer');
 
 let source = '2+(3/4)';
 

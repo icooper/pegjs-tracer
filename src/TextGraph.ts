@@ -9,8 +9,8 @@
  */
 
 // import the TextUtil class for text styling
-import { TextUtil, TextUtilStyle } from './text-util';
-import { TracerNode } from './index';
+import { TextUtil, TextUtilStyle } from './TextUtil';
+import { TracerNode } from './Tracer';
 
 // interfaces
 export interface TextGraphOptions {

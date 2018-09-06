@@ -9,9 +9,9 @@
  */
 
 // imports
-import { TextQuoter, TextQuoterOptions } from './text-quoter';
-import { TextUtil, TextUtilStyle } from './text-util';
-import { TextGraph, TextGraphOptions } from './graph';
+import { TextQuoter, TextQuoterOptions } from './TextQuoter';
+import { TextUtil, TextUtilStyle } from './TextUtil';
+import { TextGraph, TextGraphOptions } from './TextGraph';
 
 // interfaces
 export interface TracerOptions {
